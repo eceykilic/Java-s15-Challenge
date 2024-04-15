@@ -46,7 +46,7 @@ public class Main {
         Book newBook7 = library.newBook(7, new Author("J.K.", "Rowling"), "The Sorcerer's Stone: Harry's First Year at Hogwarts", 24.99, Status.AVAILABLE, Category.FANTASY, 8);
         Book newBook8 = library.newBook(8, new Author("J.K.", "Rowling"), "The Chamber of Secrets: The Secret of the Heir", 24.99, Status.AVAILABLE, Category.HORROR, 6);
         Book newBook9 = library.newBook(9, new Author("J.K.", "Rowling"), "The Prisoner of Azkaban: Sirius Black's Escape", 24.99, Status.AVAILABLE, Category.FANTASY, 7);
-        Book newBook10 = library.newBook(10, new Author("Gru", "Gru"), "Minions Mayhem: Adventures of Gru and Minions", 14.99, Status.AVAILABLE, Category.COMEDY, 10);
+        Book newBook10 = library.newBook(10, new Author("Felonious", "Gru"), "Minions Mayhem: Adventures of Gru and Minions", 14.99, Status.AVAILABLE, Category.COMEDY, 10);
         Book newBook11 = library.newBook(11, new Author("Margo", "Gru"), "Adventures of Margo: Gru's Eldest Daughter", 14.99, Status.AVAILABLE, Category.COMEDY, 5);
         Book newBook12 = library.newBook(12, new Author("Edith", "Gru"), "Edith's Pranks: Misadventures of Gru's Middle Daughter", 14.99, Status.AVAILABLE, Category.COMEDY, 6);
         Book newBook13 = library.newBook(13, new Author("Ece", "Yu"), "Ece's Most Precious Art Pieces & Their Histories", 100.99, Status.AVAILABLE, Category.ART, 13);

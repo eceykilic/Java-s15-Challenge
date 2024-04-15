@@ -12,16 +12,14 @@ public class Library {
     private List<Book> books;
     private Set<Reader> readers;
 
+    //constructor start
     public Library(List<Book> books, Set<Reader> readers) {
         this.books = new LinkedList<>(books); // Liste kopyasını oluştur
         this.readers = new HashSet<>(readers); // Küme kopyasını oluştur
     }
+    //constructor end
 
-    public Book newBook(int book_ID, Author author, String title, double price, Status status, Category category, int stock) {
-        Book book = new Book(book_ID, author, title, price, status, category, stock);
-        books.add(book);
-        return book; // Oluşturulan kitap nesnesini döndür
-    }
+    //getter setter start
 
     public List<Book> getBooks() {
         return books;
@@ -37,6 +35,14 @@ public class Library {
 
     public void setReaders(Set<Reader> readers) {
         this.readers = readers;
+    }
+
+    //getter setter end
+
+    public Book newBook(int book_ID, Author author, String title, double price, Status status, Category category, int stock) {
+        Book book = new Book(book_ID, author, title, price, status, category, stock);
+        books.add(book);
+        return book; // Oluşturulan kitap nesnesini döndür
     }
 
     public List<Book> showBooks(){
