@@ -4,8 +4,7 @@ import com.workintech.library.Library;
 import com.workintech.library.book.Book;
 import com.workintech.library.enums.Category;
 
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ListingManagement {
     //Kütüphanede varolan bütün kitapları gösterir.
@@ -21,16 +20,42 @@ public class ListingManagement {
 
     //Kitap türüne göre filtreleme yapar.
 
-    public static void getBooksbyCategory(Scanner scanner, Library library) {
-        System.out.println("Kitap kategorisini giriniz(JOURNALS, STUDYBOOKS, MAGAZINES):");
+    public static Map<Category, List<Book>> getBooksByCategory(Library library, Scanner scanner) {
+        Map<Category, List<Book>> booksByCategory = new HashMap<>();
+
+        System.out.println("Lütfen bir kategori seçin (JOURNALS, STUDYBOOKS, MAGAZINES): ");
         String categoryInput = scanner.nextLine().toUpperCase(); // Kullanıcının girdisini büyük harfe dönüştür
 
         try {
             Category category = Category.valueOf(categoryInput);
-            library.displayBooksByCategory(category);
+            List<Book> allBooks = library.getBooksByCategory(category);
+            for (Book book : allBooks) {
+                if (book.getCategory() == category) {
+                    if (!booksByCategory.containsKey(category)) {
+                        booksByCategory.put(category, new ArrayList<>());
+                    }
+                    booksByCategory.get(category).add(book);
+                }
+            }
+
+            // Map boş ise belirtilen kategoride kitap bulunamadığını belirt
+            if (booksByCategory.isEmpty()) {
+                System.out.println("Belirtilen kategoride kitap bulunamadı.");
+            } else {
+                // Map dolu ise bulunan kitapları listele
+                for (Map.Entry<Category, List<Book>> entry : booksByCategory.entrySet()) {
+                    System.out.println("Category: " + entry.getKey());
+                    for (Book book : entry.getValue()) {
+                        System.out.println("Book ID: " + book.getBook_ID() + ", Title: " + book.getTitle() + ", Author: " + book.getAuthor() +
+                                ", Category: " + book.getCategory() + ", Stock: " + book.getStock() + ", Durum: " + book.getStatus());
+                    }
+                }
+            }
         } catch (IllegalArgumentException e) {
-            System.out.println("Bu kategoride kitap bulunamadı!");
+            System.out.println("Geçersiz kategori girdisi!");
         }
+
+        return booksByCategory;
     }
 
     //Yazar ismine göre filtreleme yapar.

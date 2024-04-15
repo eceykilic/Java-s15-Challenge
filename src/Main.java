@@ -110,7 +110,7 @@ public class Main {
                     }
                     break;
                 case 4:
-                    getBooksbyCategory(scanner, library);
+                    getBooksByCategory(library, scanner);
                     break;
                 case 5:
                     getBooksbyAuthor(scanner, library);

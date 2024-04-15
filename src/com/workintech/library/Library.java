@@ -4,7 +4,6 @@ import com.workintech.library.book.Book;
 import com.workintech.library.enums.Category;
 import com.workintech.library.enums.Status;
 import com.workintech.library.person.Author;
-import com.workintech.library.person.Person;
 import com.workintech.library.person.Reader;
 
 import java.util.*;
@@ -68,12 +67,10 @@ public class Library {
                 result.add(book);
             }
         }
-        if (result.isEmpty()) {
-            System.out.println("Belirtilen kategoride kitap bulunamadı.");
-        }
         return result;
     }
 
+    //yazar ismine göre kitaplar bulunur.
     public List<Book> getBooksByAuthor(String authorName) {
         List<Book> result = new ArrayList<>();
         for (Book book : books) {
@@ -87,13 +84,7 @@ public class Library {
         return result;
     }
 
-    public void displayBooksByCategory(Category category) {
-        List<Book> booksOfType = getBooksByCategory(category);
-        for (Book book : booksOfType) {
-            System.out.println(book.display());
-        }
-    }
-
+    //yazar ismine göre kitaplar basılır.
     public void displayBooksByAuthor(String author) {
         List<Book> booksByAuthor = getBooksByAuthor(author);
         for (Book book : booksByAuthor) {
