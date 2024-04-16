@@ -19,15 +19,6 @@ public class UserManagement {
         this.librarians = new HashSet<>();
     }
 
-
-    public void addReader(String firstName, String lastName, String email, String password) {
-        readers.add(new Reader(firstName, lastName, email, password));
-    }
-
-    public void addLibrarian(String email, String password) {
-        librarians.add(new Librarian(email, password));
-    }
-
     public static Person login(Scanner scanner, Set<Reader> readers, Set<Librarian> librarians) {
         System.out.println("Lütfen e-posta ve şifrenizi girin.");
         System.out.print("Email: ");

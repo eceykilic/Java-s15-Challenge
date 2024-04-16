@@ -101,6 +101,7 @@ public class Book implements Available{
                 ", Author: " + author.displayAuthorName()+
                 ", Category: " + category +
                 ", Stock: " + stock +
+                ", Price: " + price +
                 ", Durum: " + (stock > 0 ? "Mevcut" : "Tükendi");
     }
 

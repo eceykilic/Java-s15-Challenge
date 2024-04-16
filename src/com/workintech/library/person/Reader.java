@@ -13,6 +13,9 @@ public class Reader extends Person {
 
     private UserRole role;
 
+    private double totalAmountOwed;
+    private double totalRefundable;
+
     //constructors start
 
     public Reader(String firstName, String lastName, String email, String password) {
@@ -21,11 +24,29 @@ public class Reader extends Person {
         this.password = password;
         this.borrowedBooks = new LinkedList<>();
         this.role = UserRole.READER;
+        this.totalAmountOwed = 0.0;
+        this.totalRefundable = 0.0;
     }
+
     //constructors end
 
     //getter setter start
 
+    public double getTotalAmountOwed() {
+        return totalAmountOwed;
+    }
+
+    public void setTotalAmountOwed(double totalAmountOwed) {
+        this.totalAmountOwed = totalAmountOwed;
+    }
+
+    public double getTotalRefundable() {
+        return totalRefundable;
+    }
+
+    public void setTotalRefundable(double totalRefundable) {
+        this.totalRefundable = totalRefundable;
+    }
     public String getEmail() {
         return email;
     }
@@ -56,6 +77,7 @@ public class Reader extends Person {
 
     //getter setter end
 
+    //null olmayacak şekilde başlattık çünkü NullPointerException almak istemeyiz.
     public List<Book> getBorrowedBooks() {
         if (borrowedBooks == null) {
             borrowedBooks = new LinkedList<>();

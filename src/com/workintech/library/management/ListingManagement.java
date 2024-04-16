@@ -10,7 +10,7 @@ public class ListingManagement {
     //Kütüphanede varolan bütün kitapları gösterir.
     public static void showAllBooks(Library library) {
         if(library != null) {
-            System.out.println("---- KİTAPLAR ----");
+            System.out.println("----**** TÜM KİTAPLAR ****----");
             library.showBooks();
         } else {
             System.out.println("Kütüphane boş veya mevcut değil!");
@@ -23,7 +23,7 @@ public class ListingManagement {
     public static Map<Category, List<Book>> getBooksByCategory(Library library, Scanner scanner) {
         Map<Category, List<Book>> booksByCategory = new HashMap<>();
 
-        System.out.println("Lütfen bir kategori seçin (JOURNALS, STUDYBOOKS, MAGAZINES): ");
+        System.out.println("Lütfen bir kategori seçin (NOVEL, ART, COMEDY...): ");
         String categoryInput = scanner.nextLine().toUpperCase(); // Kullanıcının girdisini büyük harfe dönüştür
 
         try {
@@ -47,7 +47,7 @@ public class ListingManagement {
                     System.out.println("Category: " + entry.getKey());
                     for (Book book : entry.getValue()) {
                         System.out.println("Book ID: " + book.getBook_ID() + ", Title: " + book.getTitle() + ", Author: " + book.getAuthor() +
-                                ", Category: " + book.getCategory() + ", Stock: " + book.getStock() + ", Durum: " + book.getStatus());
+                                ", Category: " + book.getCategory() + ", Stock: " + book.getStock() + ", Durum: " + book.getStatus()) ;
                     }
                 }
             }

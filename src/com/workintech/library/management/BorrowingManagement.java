@@ -12,7 +12,7 @@ public class BorrowingManagement {
     public static void borrowBook(Scanner scanner, Library library, Reader reader) {
         System.out.print("Ödünç almak istediğiniz kitabın ID'sini girin: ");
         int bookId = scanner.nextInt();
-        scanner.nextLine(); // Newline karakterini temizle
+        scanner.nextLine();
 
         Book book = library.findBookById(bookId);
         if (book == null) {
@@ -28,7 +28,9 @@ public class BorrowingManagement {
         if (book.canBorrow(reader)) {
             reader.getBorrowedBooks().add(book);
             book.setStock(book.getStock() - 1);
+            reader.setTotalAmountOwed(reader.getTotalAmountOwed() + book.getPrice());
             System.out.println("Kitap ödünç alındı: " + book.getTitle());
+            System.out.println("Toplam borcunuz: " + reader.getTotalAmountOwed());
         } else {
             System.out.println("Kitap ödünç alınamıyor: " + book.getTitle());
         }
@@ -41,7 +43,7 @@ public class BorrowingManagement {
     public static void returnBook(Scanner scanner, Library library, Reader reader) {
         System.out.print("İade etmek istediğiniz kitabın ID'sini girin: ");
         int bookId = scanner.nextInt();
-        scanner.nextLine(); // Newline karakterini temizle
+        scanner.nextLine();
 
         Book book = library.findBookById(bookId);
         if (book == null) {
@@ -52,7 +54,10 @@ public class BorrowingManagement {
         if (reader.getBorrowedBooks().contains(book)) {
             reader.getBorrowedBooks().remove(book);
             book.setStock(book.getStock() + 1);
+            reader.setTotalAmountOwed(reader.getTotalAmountOwed() - book.getPrice()); // Toplam borçtan düş
             System.out.println("Kitap iade edildi: " + book.getTitle());
+            System.out.println("İade edilen tutar: " + book.getPrice());
+            System.out.println("Toplam borcunuz: " + reader.getTotalAmountOwed()); // Toplam borcu göster
         } else {
             System.out.println("Bu kitap zaten ödünç alınmamış: " + book.getTitle());
         }

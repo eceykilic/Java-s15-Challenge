@@ -37,11 +37,11 @@ public class Main {
         Library library = new Library(new LinkedList<>(), new HashSet<>());
 
         // Yeni bir kitap eklemek için
-        Book newBook = library.newBook(1, new Author("Luke", "Skywalker"), "The Force Awakens: A Jedi's Journey", 39.99, Status.AVAILABLE, Category.SCIENCE_FICTION, 10);
-        Book newBook2 = library.newBook(2, new Author("Rick", "Sanchez"), "Interdimensional Adventures: The Quest for Portal Gun", 19.99, Status.AVAILABLE, Category.SCIENCE_FICTION, 2);
-        Book newBook3 = library.newBook(3, new Author("Din", "Grogu"), "The Adventures of a Young Jedi", 59.99, Status.AVAILABLE, Category.SCIENCE_FICTION, 5);
-        Book newBook4 = library.newBook(4, new Author("Anakin", "Skywalker"), "Rise of the Chosen One: Anakin's Path to the Dark Side", 29.99, Status.AVAILABLE, Category.SCIENCE_FICTION, 6);
-        Book newBook5 = library.newBook(5, new Author("Paul", "Atreides"), "Dune: Sands of Arrakis", 49.99, Status.AVAILABLE, Category.SCIENCE_FICTION, 2);
+        Book newBook = library.newBook(1, new Author("Luke", "Skywalker"), "The Force Awakens: A Jedi's Journey", 39.99, Status.AVAILABLE, Category.SCIFI, 10);
+        Book newBook2 = library.newBook(2, new Author("Rick", "Sanchez"), "Interdimensional Adventures: The Quest for Portal Gun", 19.99, Status.AVAILABLE, Category.SCIFI, 2);
+        Book newBook3 = library.newBook(3, new Author("Din", "Grogu"), "The Adventures of a Young Jedi", 59.99, Status.AVAILABLE, Category.SCIFI, 5);
+        Book newBook4 = library.newBook(4, new Author("Anakin", "Skywalker"), "Rise of the Chosen One: Anakin's Path to the Dark Side", 29.99, Status.AVAILABLE, Category.SCIFI, 6);
+        Book newBook5 = library.newBook(5, new Author("Paul", "Atreides"), "Dune: Sands of Arrakis", 49.99, Status.AVAILABLE, Category.SCIFI, 2);
         Book newBook6 = library.newBook(6, new Author("Morty", "Smith"), "Morty's Misadventures: A Journey Across Dimensions", 19.99, Status.AVAILABLE, Category.MYSTERY, 1);
         Book newBook7 = library.newBook(7, new Author("J.K.", "Rowling"), "The Sorcerer's Stone: Harry's First Year at Hogwarts", 24.99, Status.AVAILABLE, Category.FANTASY, 8);
         Book newBook8 = library.newBook(8, new Author("J.K.", "Rowling"), "The Chamber of Secrets: The Secret of the Heir", 24.99, Status.AVAILABLE, Category.HORROR, 6);

@@ -3,10 +3,8 @@ package com.workintech.library.enums;
 public enum Category {
     NOVEL,
     MYSTERY,
-    SCIENCE_FICTION,
+    SCIFI,
     HORROR,
-    ROMANCE,
-    HISTORY,
     COMEDY,
     FANTASY,
     DRAMA,
