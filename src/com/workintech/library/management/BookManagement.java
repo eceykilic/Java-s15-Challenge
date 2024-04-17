@@ -39,7 +39,7 @@ public class BookManagement {
         Author author = new Author(firstName, lastName);
         Book newBook = new Book(bookId, author, title, price, Status.AVAILABLE, category, stock);
 
-        if (library.showBooks().contains(newBook)) {
+        if (library.getBooks().contains(newBook)) {
             System.out.println("Bu kitap zaten eklenmiş!");
         } else {
             library.newBook(bookId, author, title, price, Status.AVAILABLE, category, stock); // stock parametresi eklendi
@@ -54,7 +54,7 @@ public class BookManagement {
         scanner.nextLine();
 
         Book bookToRemove = null;
-        for (Book book : library.showBooks()) {
+        for (Book book : library.getBooks()) {
             if (book.getBook_ID() == bookId) {
                 bookToRemove = book;
                 break;

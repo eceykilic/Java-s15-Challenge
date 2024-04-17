@@ -9,11 +9,6 @@ public class Librarian extends Person {
 
     //constructors start
 
-    public Librarian(String firstName, String lastName) {
-        super(firstName, lastName);
-        this.role = UserRole.LIBRARIAN;
-    }
-
     public Librarian(String firstName, String lastName, String email, String password) {
         super(firstName, lastName);
         this.email = email;

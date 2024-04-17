@@ -11,7 +11,12 @@ public class ListingManagement {
     public static void showAllBooks(Library library) {
         if(library != null) {
             System.out.println("----**** TÜM KİTAPLAR ****----");
-            library.showBooks();
+            List<Book> allBooks = library.getBooks();
+            Collections.sort(allBooks, Comparator.comparing(Book::getBook_ID)); // Sort books by ID
+            for (Book book : allBooks) {
+                System.out.println("Book ID: " + book.getBook_ID() + ", Title: " + book.getTitle() + ", Author: " + book.getAuthor() +
+                        ", Category: " + book.getCategory() + ", Stock: " + book.getStock() + ", Durum: " + book.getStatus());
+            }
         } else {
             System.out.println("Kütüphane boş veya mevcut değil!");
         }

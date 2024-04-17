@@ -14,7 +14,7 @@ public class Library {
 
     //constructor start
     public Library(List<Book> books, Set<Reader> readers) {
-        this.books = new LinkedList<>(books); // Liste kopyasını oluştur
+        this.books = new ArrayList<>(books); // Liste kopyasını oluştur
         this.readers = new HashSet<>(readers); // Küme kopyasını oluştur
     }
     //constructor end

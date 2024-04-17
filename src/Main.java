@@ -34,7 +34,7 @@ public class Main {
         Reader defaultReader = new Reader("Oku", "Yucu", "okuyucu@ece.com", "321");
         readers.add(defaultReader);
 
-        Library library = new Library(new LinkedList<>(), new HashSet<>());
+        Library library = new Library(new ArrayList<>(), new HashSet<>());
 
         // Yeni bir kitap eklemek için
         Book newBook = library.newBook(1, new Author("Luke", "Skywalker"), "The Force Awakens: A Jedi's Journey", 39.99, Status.AVAILABLE, Category.SCIFI, 10);
