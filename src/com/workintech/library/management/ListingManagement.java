@@ -15,7 +15,7 @@ public class ListingManagement {
             Collections.sort(allBooks, Comparator.comparing(Book::getBook_ID)); // Sort books by ID
             for (Book book : allBooks) {
                 System.out.println("Book ID: " + book.getBook_ID() + ", Title: " + book.getTitle() + ", Author: " + book.getAuthor() +
-                        ", Category: " + book.getCategory() + ", Stock: " + book.getStock() + ", Durum: " + book.getStatus());
+                        ", Category: " + book.getCategory() + ", Price: " + book.getPrice() + ", Stock: " + book.getStock() + ", Durum: " + book.getStatus());
             }
         } else {
             System.out.println("Kütüphane boş veya mevcut değil!");
@@ -64,10 +64,13 @@ public class ListingManagement {
     }
 
     //Yazar ismine göre filtreleme yapar.
-    public static void getBooksbyAuthor(Scanner scanner,Library library){
+    public static void getBooksbyAuthor(Scanner scanner, Library library) {
         System.out.println("Yazar ismi giriniz:");
-        String author = scanner.nextLine();
-        library.displayBooksByAuthor(author);
+        String author = scanner.nextLine().toLowerCase(); // Yazar ismini küçük harfe dönüştür
 
+        // İlk harfi büyütmek için String'in ilk harfini büyük harfe dönüştür
+        author = author.substring(0, 1).toUpperCase() + author.substring(1);
+
+        library.displayBooksByAuthor(author);
     }
 }

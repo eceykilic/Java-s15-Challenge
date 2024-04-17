@@ -4,6 +4,7 @@ import com.workintech.library.Library;
 import com.workintech.library.book.Book;
 import com.workintech.library.enums.Category;
 import com.workintech.library.enums.Status;
+import com.workintech.library.management.BookManagement;
 import com.workintech.library.person.Author;
 import com.workintech.library.person.Librarian;
 import com.workintech.library.person.Person;
@@ -116,6 +117,18 @@ public class Main {
                     getBooksbyAuthor(scanner, library);
                     break;
                 case 6:
+                    if (user instanceof Reader) {
+                        System.out.println("Kütüphanenin kapıları kapatılıyor. Hoşçakalın!");
+                        scanner.close();
+                        System.exit(0);
+                        break;
+                    } else if (user instanceof Librarian) {
+                        BookManagement.updateBookPrice(scanner, library);
+                    } else {
+                        System.out.println("Geçersiz seçim. Lütfen tekrar deneyin.");
+                    }
+                    break;
+                case 7:
                     System.out.println("Kütüphanenin kapıları kapatılıyor. Hoşçakalın!");
                     scanner.close();
                     System.exit(0);
@@ -143,7 +156,8 @@ public class Main {
             System.out.println("3. Kütüphaneden kitap sil.");
             System.out.println("4. Kategoriye göre kitapları listele.");
             System.out.println("5. Yazar ismine göre kitapları listele.");
-            System.out.println("6. Çıkış");
+            System.out.println("6. Kitap fiyatını güncelle.");
+            System.out.println("7. Çıkış");
             System.out.print("Yapmak istediğiniz işlemi seçiniz: ");
         } else {
             System.out.println("Geçersiz kullanıcı!");

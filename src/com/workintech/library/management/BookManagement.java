@@ -69,4 +69,30 @@ public class BookManagement {
         }
     }
 
+    // Kitap fiyatını güncelleme
+    public static void updateBookPrice(Scanner scanner, Library library) {
+        System.out.println("Güncellemek istediğiniz kitabın ID'si: ");
+        int bookId = scanner.nextInt();
+        scanner.nextLine();
+
+        Book bookToUpdate = library.findBookById(bookId);
+        if (bookToUpdate != null) {
+            System.out.println("Mevcut fiyat: " + bookToUpdate.getPrice());
+            System.out.println("Yeni fiyatı girin: ");
+            double newPrice = scanner.nextDouble();
+            scanner.nextLine();
+
+            if (newPrice == bookToUpdate.getPrice()) {
+                System.out.println("Girilen fiyat mevcut fiyatla aynı. Herhangi bir güncelleme yapılmadı.");
+            } else {
+                bookToUpdate.setPrice(newPrice);
+                System.out.println("Kitap fiyatı başarıyla güncellendi!");
+            }
+        } else {
+            System.out.println("Belirtilen ID'ye sahip bir kitap bulunamadı.");
+        }
+    }
+
+
+
 }
